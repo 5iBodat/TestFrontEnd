@@ -54,7 +54,7 @@ const Bookmark = () => {
                 <Row>
                     {isLoading ? <h1>Loading...</h1> : (
                         bookmark.map(item => (
-                            <Col md={3} className="mb-3">
+                            <Col md={3} sm={6} className="col-6 mb-3">
                                 <div className="card" key={item.id}>
                                     <button className="btn btn-light bookmark" type="button" id="btn-bookmark" onClick={() => handleBookMark(item)}>
                                         {bookmark.find(bookmark => bookmark.id === item.id) ? <FaHeart color='red' /> : <FaRegHeart color='red' />}

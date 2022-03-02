@@ -1,3 +1,23 @@
 .page-link{
     cursor: pointer;
 }
+
+.input-group svg{
+    position: absolute;
+    padding-top: 10px;
+    z-index: 99;
+    display: block;
+    width: 3.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.search-input{
+    width: 100%;
+    border-radius: 15px !important;
+    height: 50px;
+    padding-left: 3.375rem !important; 
+}

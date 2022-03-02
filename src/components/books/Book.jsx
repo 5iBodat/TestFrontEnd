@@ -2,11 +2,12 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Row, Col } from 'reactstrap'
 import ReactPaginate from 'react-paginate';
-import { FaHeart, FaRegHeart, FaSearch } from "react-icons/fa";
+import { FaHeart, FaRegHeart } from "react-icons/fa";
+import { BsSearch } from 'react-icons/bs';
 import { categoryContext } from '../../App';
-import './book.css';
-
 import './book.css'
+
+
 const Book = () => {
     const { id, name } = useParams();
     const [book, setBook] = useState([]);
@@ -104,25 +105,25 @@ const Book = () => {
 
     return (
         <>
-            <h1>Book {name}</h1>
+            <div className="title mb-3">{name}</div>
 
             <Row>
-                <Col md={12}>
+                <Col md={6}>
                     <div className="input-group mb-3">
                         <input
                             onChange={handleSearch}
                             type="text"
-                            className="form-control"
-                            placeholder="Title, authors"
+                            className="form-control search-input"
+                            placeholder="Search title or authors...."
                             aria-label="search"
                             aria-describedby="btn-search" />
-                        <button className="btn btn-outline-secondary" type="button" id="btn-search"><FaSearch /></button>
+                        <BsSearch />
                     </div>
                 </Col>
                 <Col md={12}>
                     <Row>
                         {isLoading ? 'Loading...' : book.map(item => (
-                            <Col md={3} sm={6} className="mb-3">
+                            <Col md={3} sm={6} className="mb-3 col-6">
                                 <div className="card" key={item.id}>
                                     <button className="btn btn-light bookmark" type="button" id="btn-bookmark" onClick={() => handleBookMark(item)}>
                                         {bookmark.find(bookmark => bookmark.id === item.id) ? <FaHeart color='red' /> : <FaRegHeart color='red' />}
@@ -143,15 +144,18 @@ const Book = () => {
                         ))}
 
                     </Row>
+
+                </Col>
+                <Col>
                     {isSearch ? (
                         '1,2.3'
                     ) : (
                         <ReactPaginate
                             breakLabel="..."
-                            nextLabel="Next"
-                            previousLabel="Previous"
+                            nextLabel=">"
+                            previousLabel="<"
                             onPageChange={handlePageClick}
-                            pageRangeDisplayed={5}
+                            pageRangeDisplayed={3}
                             pageCount={pageCount}
                             renderOnZeroPageCount={null}
                             containerClassName="pagination"
@@ -164,9 +168,9 @@ const Book = () => {
                             nextLinkClassName='page-link'
                             breakClassName='page-item'
                             breakLinkClassName='page-link'
+                            className='pagination justify-content-center'
                         />
                     )}
-
                 </Col>
             </Row>
         </>

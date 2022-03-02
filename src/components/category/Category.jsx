@@ -27,7 +27,7 @@ const Category = () => {
     return (
         <>
             <div>
-                <h1>Category</h1>
+                <div className="title mb-3">Category</div>
                 <Row>
                     <Col className='p-0'>
                         <ul className="category">

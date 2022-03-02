@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Navbar,
@@ -8,38 +8,39 @@ import {
     Nav,
     NavItem,
     NavLink,
-    NavbarText
+    UncontrolledCarousel
 } from 'reactstrap'
+
+import './header.css'
 const Header = () => {
+    const [isOpen, setIsOpen] = useState(false);
     return (
         <>
-            <div>
-                <Navbar
-                    color="light"
-                    expand="md"
-                    light
-                >
-                    <NavbarBrand href="/">
-                        Sejuta Cita
-                    </NavbarBrand>
-                    <NavbarToggler onClick={function noRefCheck() { }} />
-                    <Collapse navbar>
-                        <Nav
-                            className="me-auto"
-                            navbar
-                        >
-                            <NavItem>
-                                <Link to="/bookmark" className='nav-link'>
-                                    Bookmark
-                                </Link>
-                            </NavItem>
-                        </Nav>
-                        <NavbarText>
-                            Simple Text
-                        </NavbarText>
-                    </Collapse>
-                </Navbar>
-            </div>
+            <Navbar
+                color="transparant"
+                expand="md"
+                className='mb-3'
+                light
+            >
+                <NavbarBrand href="/">
+                    Sejuta Cita
+                </NavbarBrand>
+                <NavbarToggler onClick={() => {
+                    setIsOpen(!isOpen)
+                }} />
+                <Collapse isOpen={isOpen} navbar>
+                    <Nav
+                        className="me-auto"
+                        navbar
+                    >
+                        <NavItem>
+                            <Link to="/bookmark" className='nav-link'>
+                                Bookmark
+                            </Link>
+                        </NavItem>
+                    </Nav>
+                </Collapse>
+            </Navbar>
         </>
     );
 }

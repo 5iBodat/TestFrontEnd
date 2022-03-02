@@ -1,3 +1,6 @@
+.navbar-brand{
+    font-size: 2rem !important; 
+}
 .bookmark{
     position: absolute;
     right: 0;
@@ -6,7 +9,38 @@
     opacity: 0;
 }
 
+.card{
+    height: 100%;
+}
+
 .card:hover .bookmark{
     opacity: 1;
     transition: 1s ease;
 }
+
+.title{
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 768px){
+    .title{
+        font-size: 1.75rem;
+        font-weight: 500;
+    }
+
+    .card .card-body .card-title{
+        font-size: 1rem;
+    }
+    
+    .card .card-body .card-text{
+        font-size: .70rem;
+    }
+    
+    .bookmark{
+        opacity: 1;
+    }
+
+    
+}
+

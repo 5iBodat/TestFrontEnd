@@ -2,7 +2,6 @@
     width: 100%;
     display: flex;
     padding: 0;
-
     flex-wrap: wrap;
 }
 .category-list{
@@ -25,4 +24,10 @@
 
 .link:hover{
     color: rgb(0,0,0);
+}
+
+@media screen and (max-width: 768px){
+    .category-list{
+        height: 50px;
+    }
 }
